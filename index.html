@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Wallet Demo</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    background: #000;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.phone {
+    width: 100%;
+    max-width: 430px;
+    min-height: 100vh;
+    background: #000;
+    position: relative;
+    overflow: hidden;
+    padding-top: 75px;
+}
+
+
+/* PETIT INDICATEUR DEMO */
+
+.demo {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: #ff9500;
+    color: #000;
+
+    padding: 5px 9px;
+    border-radius: 10px;
+
+    font-size: 10px;
+    font-weight: bold;
+}
+
+
+/* CARTE DU HAUT */
+
+.top-card {
+    width: calc(100% - 44px);
+    height: 210px;
+
+    margin: 20px auto 0;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    position: relative;
+
+    background: linear-gradient(
+        135deg,
+        #444,
+        #111
+    );
+
+    box-shadow:
+        0 0 25px rgba(255,255,255,0.12);
+}
+
+
+/* IMAGE DE DEMONSTRATION */
+
+.card-picture {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #777 0%,
+            #333 45%,
+            #111 100%
+        );
+
+    color: #ddd;
+
+    font-size: 20px;
+}
+
+
+/* FAUX NUMERO */
+
+.fake-number {
+    position: absolute;
+
+    left: 100px;
+    bottom: 12px;
+
+    color: white;
+
+    font-size: 20px;
+
+    letter-spacing: 2px;
+
+    text-shadow: 0 2px 6px #000;
+}
+
+
+/* LECTEUR */
+
+.reader {
+    margin-top: 105px;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* CERCLE BLEU */
+
+.reader-circle {
+    width: 76px;
+    height: 76px;
+
+    border: 4px solid #007aff;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    animation: pulse 2s infinite;
+}
+
+
+/* TELEPHONE */
+
+.phone-icon {
+    color: #007aff;
+
+    font-size: 37px;
+
+    line-height: 1;
+}
+
+
+/* TEXTE */
+
+.reader-text {
+    margin-top: 24px;
+
+    color: #aaa;
+
+    font-size: 20px;
+}
+
+
+/* CARTE DU BAS */
+
+.bottom-card {
+
+    position: absolute;
+
+    left: 27px;
+    right: 27px;
+
+    bottom: -115px;
+
+    height: 205px;
+
+    border-radius: 16px 16px 0 0;
+
+    padding: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #164b87,
+            #061b36
+        );
+
+    box-shadow:
+        0 -5px 25px rgba(255,255,255,0.15);
+}
+
+
+/* NOM BANQUE */
+
+.bank-name {
+
+    color: white;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    font-weight: bold;
+}
+
+
+/* FAUX NUMERO */
+
+.bottom-number {
+
+    position: absolute;
+
+    left: 25px;
+    bottom: 25px;
+
+    color: white;
+
+    font-size: 18px;
+
+    letter-spacing: 2px;
+}
+
+
+/* BOUTON */
+
+button {
+
+    position: absolute;
+
+    bottom: 35px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    padding: 12px 22px;
+
+    border: none;
+
+    border-radius: 20px;
+
+    background: #007aff;
+
+    color: white;
+
+    font-size: 15px;
+
+    cursor: pointer;
+}
+
+
+/* MESSAGE */
+
+#message {
+
+    position: absolute;
+
+    bottom: 10px;
+
+    width: 100%;
+
+    text-align: center;
+
+    color: #777;
+
+    font-size: 10px;
+}
+
+
+/* ANIMATION */
+
+@keyframes pulse {
+
+    0% {
+        box-shadow: 0 0 0 0 rgba(0,122,255,0.5);
+    }
+
+    70% {
+        box-shadow: 0 0 0 13px rgba(0,122,255,0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(0,122,255,0);
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+<div class="phone">
+
+    <div class="demo">
+        DEMO
+    </div>
+
+
+    <!-- CARTE DU HAUT -->
+
+    <div class="top-card">
+
+        <div class="card-picture">
+            IMAGE DE DEMO
+        </div>
+
+        <div class="fake-number">
+            •••• 2725
+        </div>
+
+    </div>
+
+
+    <!-- LECTEUR -->
+
+    <div class="reader">
+
+        <div class="reader-circle">
+
+            <div class="phone-icon">
+                ▯
+            </div>
+
+        </div>
+
+        <div class="reader-text">
+            Hold Near Reader
+        </div>
+
+    </div>
+
+
+    <!-- CARTE DU BAS -->
+
+    <div class="bottom-card">
+
+        <div class="bank-name">
+            BANCO DEMO
+        </div>
+
+        <div class="bottom-number">
+            •••• •••• •••• 2725
+        </div>
+
+    </div>
+
+
+    <!-- BOUTON -->
+
+    <button id="simulate">
+        Simuler
+    </button>
+
+    <div id="message">
+        Interface de démonstration
+    </div>
+
+</div>
+
+
+<script>
+
+const button = document.getElementById("simulate");
+
+const message = document.getElementById("message");
+
+button.addEventListener("click", function() {
+
+    message.textContent =
+        "Simulation uniquement — aucun paiement effectué.";
+
+    setTimeout(function() {
+
+        message.textContent =
+            "Interface de démonstration";
+
+    }, 2500);
+
+});
+
+</script>
+
+
+</body>
+
+</html>
